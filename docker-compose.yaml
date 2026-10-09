@@ -1,0 +1,31 @@
+services:
+
+  db:
+    image: postgres:17-alpine
+    restart: always
+    shm_size: 128mb
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_PASSWORD: example
+      POSTGRES_USER: postgres
+      POSTGRES_DB: ai_support_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - '8080:8080'
+    depends_on:
+      - db
+
+  cache:
+    image: redis:8.10.0-alpine
+    restart: always
+    ports:
+      - "6379:6379"
+
+volumes:
+  postgres_data:
