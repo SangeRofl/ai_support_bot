@@ -1,7 +1,7 @@
 import asyncio
 from aiogram import Dispatcher, Bot
 from src.config import settings
-from routers.command_start import my_router as start
+from src.bot.routers.command_start import my_router as start
 
 
 dp = Dispatcher()
@@ -14,4 +14,5 @@ async def main():
     await dp.start_polling(bot)
 
 if __name__ == '__main__':
+    print('Бот запущен и готов к работе')
     asyncio.run(main())
