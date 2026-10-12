@@ -1,14 +1,16 @@
-from pydoc import text
+
 
 from aiogram import Router, types, F
 from aiogram.filters import Command
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 
-from bot.routers.profile import profile_router
+from src.bot.routers.profile import profile_router
+from src.bot.routers.faq import faq_router
 
 my_router = Router()
 
 my_router.include_router(profile_router)
+my_router.include_router(faq_router)
 
 
 def start_menu():
@@ -39,3 +41,4 @@ async def back_to_menu_handler(callback: types.CallbackQuery):
 
     await callback.message.delete()
     await callback.answer()
+

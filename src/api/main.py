@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from api.routers.faq import router as faq_router
+from src.api.routers.faq import router as faq_router
 
 app = FastAPI(title='AI Support Bot API')
 
