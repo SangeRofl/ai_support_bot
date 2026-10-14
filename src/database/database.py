@@ -22,7 +22,11 @@ async_new_session = async_sessionmaker(engine,
 
 class Model(DeclarativeBase):
     pass
+
+#?тут зачем
 import src.models.faq
+
+
 
 
 async def get_db():

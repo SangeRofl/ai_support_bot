@@ -6,7 +6,7 @@ app = FastAPI(title='AI Support Bot API')
 
 app.include_router(
     faq_router,
-    prefix="/api/v1",
+    prefix="/api",
 )
 
 
@@ -14,3 +14,4 @@ app.include_router(
 @app.get("/health")
 async def health_check():
     return {"status": "ok"}
+
